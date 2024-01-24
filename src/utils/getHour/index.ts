@@ -1,11 +1,10 @@
 import { format } from 'date-fns'
-import { utcToZonedTime } from 'date-fns-tz'
+import { ptBR } from 'date-fns/locale/pt-BR'
 
 export function getHourAndMinutes(date: string) {
-  const hourZone = 'America/Sao_Paulo'
+  const formatedHoursAndMinutes = format(new Date(date), 'HH:mm', {
+    locale: ptBR,
+  })
 
-  const dateWithTimezone = utcToZonedTime(new Date(date), hourZone)
-  const hour = format(dateWithTimezone, 'HH:mm')
-
-  return hour
+  return formatedHoursAndMinutes
 }
