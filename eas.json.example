@@ -1,0 +1,21 @@
+{
+  "cli": {
+    "version": ">= 7.1.2"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "API_URL": "https://api-disfruta-paraguay.onrender.com"
+      }
+      "distribution": "internal"
+    },
+    "production": {}
+  }
+ }
