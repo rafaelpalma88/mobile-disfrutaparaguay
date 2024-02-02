@@ -38,3 +38,6 @@ yarn-error.*
 
 # eas file
 eas.json
+
+builds
+*.apk
