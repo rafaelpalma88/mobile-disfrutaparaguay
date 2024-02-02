@@ -58,10 +58,10 @@ export function SignIn() {
           }}
         >
          <View marginBottom={30}>
-            {/* <LogoDisfrutaParaguay
+            <LogoDisfrutaParaguay
               width={300} // Largura personalizada do SVG
               height={100} // Altura personalizada do SVG
-            /> */}
+            />
           </View>
 
           <Controller
