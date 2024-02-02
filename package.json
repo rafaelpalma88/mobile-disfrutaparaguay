@@ -46,6 +46,6 @@
   },
   "private": true,
   "resolutions": {
-    "react": "20.11.0"
+    "react": "18.2.0"
   }
 }
