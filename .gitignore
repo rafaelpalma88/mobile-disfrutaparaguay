@@ -39,5 +39,7 @@ yarn-error.*
 # eas file
 eas.json
 
+# builds
 builds
 *.apk
+/android
