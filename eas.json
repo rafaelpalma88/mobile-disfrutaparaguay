@@ -16,6 +16,10 @@
       },
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "env": {
+        "API_URL": "https://api-disfruta-paraguay.onrender.com"
+      }
+    }
   }
  }

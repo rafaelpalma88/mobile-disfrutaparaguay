@@ -43,3 +43,6 @@ eas.json
 builds
 *.apk
 /android
+
+# eas json
+eas.json

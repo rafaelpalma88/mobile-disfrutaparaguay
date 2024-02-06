@@ -12,7 +12,7 @@ export function Header({ title }: Props) {
   const navigation = useNavigation<AppNavigatorRoutesProps>()
   return (
     <HStack bg="gray.600" paddingTop={6} pb={5} px={8} alignItems="center">
-      <Button
+      {/* <Button
         size={8}
         bg="transparent"
         justifyContent="center"
@@ -22,7 +22,7 @@ export function Header({ title }: Props) {
         }}
       >
         <Icon as={Entypo} name="chevron-left" size={26} color="gray.300" />
-      </Button>
+      </Button> */}
       <Heading pl={4} color="gray.100">
         {limitLetters(title, 20)}
       </Heading>
