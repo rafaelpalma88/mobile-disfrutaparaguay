@@ -5,20 +5,23 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api-disfruta-paraguay.onrender.com"
+      }
     },
     "preview": {
       "android": {
         "buildType": "apk"
       },
       "env": {
-        "API_URL": "https://api-disfruta-paraguay.onrender.com"
+        "EXPO_PUBLIC_API_URL": "https://api-disfruta-paraguay.onrender.com"
       },
       "distribution": "internal"
     },
     "production": {
       "env": {
-        "API_URL": "https://api-disfruta-paraguay.onrender.com"
+        "EXPO_PUBLIC_API_URL": "https://api-disfruta-paraguay.onrender.com"
       }
     }
   }

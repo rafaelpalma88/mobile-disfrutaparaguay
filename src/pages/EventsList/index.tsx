@@ -20,7 +20,7 @@ export function EventsList() {
       console.log('teste', process.env.API_URL)
       try {
         const result = await axios.get(
-          `${process.env.API_URL}/events`,
+          `${process.env.EXPO_PUBLIC_API_URL}/events`,
         )
         // resolver a questão do mock no expo-go
         await setEvents(result.data)
@@ -73,7 +73,7 @@ export function EventsList() {
 
           {!loading && events.length === 0 && (
             <View>
-              <Text style={{ color: '#FFF' }}>Não há eventos cadastrados</Text>
+              <Text style={{ color: '#FFF' }}>Não há eventos cadastrados {process.env.API_URL}</Text>
             </View>
           )}
 
