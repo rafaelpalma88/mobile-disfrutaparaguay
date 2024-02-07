@@ -10,7 +10,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "server": "json-server --watch db.json",
-    "ngrok": "ngrok http 3000"
+    "ngrok": "ngrok authtoken <YOUR-TOKEN> http 3000"
   },
   "dependencies": {
     "@expo-google-fonts/roboto": "0.2.3",
