@@ -13,6 +13,7 @@ import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
 export function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([])
   const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<boolean>(false)
 
   useEffect(() => {
    
@@ -25,9 +26,9 @@ export function EventsList() {
         // resolver a questão do mock no expo-go
         await setEvents(result.data)
 
-        // setEvents(eventsMock)
       } catch (error) {
         console.log(error)
+        setError(true)
       } finally {
         await setLoading(false)
       }
@@ -71,13 +72,19 @@ export function EventsList() {
             </VStack>
           )}
 
-          {!loading && events.length === 0 && (
+          {!loading && events.length === 0 && !error &&(
             <View>
-              <Text style={{ color: '#FFF' }}>Não há eventos cadastrados {process.env.API_URL}</Text>
+              <Text style={{ color: '#FFF' }}>Não há eventos cadastrados</Text>
             </View>
           )}
 
-          {!loading && events.length > 0 && (
+          {!loading && error && (
+            <View>
+              <Text style={{ color: '#FFF' }}>Houve um erro na requisição com a API</Text>
+            </View>
+          )}
+
+          {!loading && events.length > 0 && !error && (
             <S.EventsList>
               {events
                 .filter((event) => event.active)
