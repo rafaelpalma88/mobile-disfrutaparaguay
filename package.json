@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "server": "json-server --watch db.json",
+    "server": "json-server --watch db.json"
   },
   "dependencies": {
     "@expo-google-fonts/roboto": "0.2.3",
