@@ -9,7 +9,6 @@ import { Header } from '@components/Header'
 import { Button, Skeleton, VStack } from 'native-base'
 import { useNavigation } from '@react-navigation/native'
 import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
-// import dotenv from "dotenv";
 
 export function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([])
@@ -18,10 +17,10 @@ export function EventsList() {
   useEffect(() => {
    
     async function getEvents() {
+      console.log('teste', process.env.API_URL)
       try {
         const result = await axios.get(
-          // `${process.env.API_URL}/events`,
-          'https://api-disfruta-paraguay.onrender.com/events'
+          `${process.env.API_URL}/events`,
         )
         // resolver a questão do mock no expo-go
         await setEvents(result.data)

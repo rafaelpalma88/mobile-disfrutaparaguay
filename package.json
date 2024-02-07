@@ -19,7 +19,6 @@
     "axios": "1.6.5",
     "date-fns": "3.0.6",
     "date-fns-tz": "2.0.0",
-    "dotenv": "16.4.0",
     "expo": "~50.0.5",
     "expo-status-bar": "~1.11.1",
     "jest-expo": "^50.0.0",
