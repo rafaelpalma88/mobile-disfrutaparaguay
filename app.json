@@ -9,7 +9,6 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover",
-      // "backgroundColor": "#ffffff"
       "backgroundColor": "#000000"
     },
     "assetBundlePatterns": [
@@ -22,7 +21,6 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        // "backgroundColor": "#ffffff"
         "backgroundColor": "#000000"
       },
       "package": "com.disfrutaparaguay.mobile"

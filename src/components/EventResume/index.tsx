@@ -23,7 +23,6 @@ export function EventResume({
   const navigation = useNavigation<AppNavigatorRoutesProps>()
 
   function handleAccessEventDetail(id: string) {
-    console.log('handleAccessEventDetail -> ', id)
     navigation.navigate('eventDetail', { id })
   }
 

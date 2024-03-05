@@ -9,6 +9,7 @@ import { Header } from '@components/Header'
 import { Button, Skeleton, VStack } from 'native-base'
 import { useNavigation } from '@react-navigation/native'
 import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
+import { SkeletonEventsList } from './SkeletonEventsList'
 
 export function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([])
@@ -18,7 +19,6 @@ export function EventsList() {
   useEffect(() => {
    
     async function getEvents() {
-      console.log('teste', process.env.API_URL)
       try {
         const result = await axios.get(
           `${process.env.EXPO_PUBLIC_API_URL}/events`,
@@ -46,30 +46,7 @@ export function EventsList() {
             // <View>
             //   <Text style={{ color: '#FFF' }}>Carregando eventos...</Text>
             // </View>
-            <VStack pt={6}>
-              {/* Aprimorar este Skeleton, deixar ele mais bonito */}
-              <Skeleton
-                h={100}
-                rounded="md"
-                startColor="gray.500"
-                endColor="gray.400"
-                marginBottom={6}
-              />
-              <Skeleton
-                h={100}
-                rounded="md"
-                startColor="gray.500"
-                endColor="gray.400"
-                marginBottom={6}
-              />
-              <Skeleton
-                h={100}
-                rounded="md"
-                startColor="gray.500"
-                endColor="gray.400"
-                marginBottom={6}
-              />
-            </VStack>
+            <SkeletonEventsList />
           )}
 
           {!loading && events.length === 0 && !error &&(
