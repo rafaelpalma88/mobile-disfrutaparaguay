@@ -86,6 +86,7 @@ export function SignIn() {
                 onChangeText={(text) => onChange(text.toLowerCase())} 
                 value={value}
                 keyboardType="email-address"
+                caretHidden 
               />
             )}
             name="email"
@@ -125,7 +126,7 @@ export function SignIn() {
             name="password"
           />
           <HStack width='100%' justifyContent="flex-end" marginBottom={10}>
-            <Text color="gray.300" onPress={() => console.log('Forgot password?')}>
+            <Text color="gray.300" onPress={() => navigation.navigate('forgotpassword')}>
               Forgot password?
             </Text>
           </HStack>
