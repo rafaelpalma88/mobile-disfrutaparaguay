@@ -10,6 +10,9 @@ import {
   Image,
   KeyboardAvoidingView,
   View,
+  Box,
+  Flex,
+  HStack,
 } from 'native-base'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Button } from '@components/Button'
@@ -17,6 +20,8 @@ import { useNavigation } from '@react-navigation/native'
 import LogoDisfrutaParaguay from '@assets/logoDisfrutaParaguay.svg'
 import { useForm, Controller } from 'react-hook-form'
 import { AuthNavigatorRoutesProps } from 'src/routes/auth.routes'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
 
 type FormDataProps = {
   email: string
@@ -26,7 +31,7 @@ type FormDataProps = {
 export function SignIn() {
   const [show, setShow] = useState(false)
 
-  const navigation = useNavigation<AuthNavigatorRoutesProps>()
+  const navigation = useNavigation<AppNavigatorRoutesProps & AuthNavigatorRoutesProps>()
 
   const {
     control,
@@ -42,6 +47,10 @@ export function SignIn() {
   function handleSignIn({ email, password }: FormDataProps) {
     console.log('email -> ', email)
     console.log('password -> ', password)
+    if(email === 'rafaelcostapalma@protonmail.com' && password === "teste123") {
+      AsyncStorage.setItem('@disfrutaparaguay-accesstoken','token-exemplo')
+      navigation.navigate('events')
+    }
   }
 
   return (
@@ -74,14 +83,14 @@ export function SignIn() {
               <Input
                 placeholder="E-mail"
                 onBlur={onBlur}
-                onChangeText={onChange}
+                onChangeText={(text) => onChange(text.toLowerCase())} 
                 value={value}
                 keyboardType="email-address"
               />
             )}
             name="email"
           />
-          {errors.email && <Text>This is required.</Text>}
+          {errors.email && <Text color="red.500">This is required.</Text>}
 
           <Controller
             control={control}
@@ -115,12 +124,18 @@ export function SignIn() {
             )}
             name="password"
           />
+          <HStack width='100%' justifyContent="flex-end" marginBottom={10}>
+            <Text color="gray.300" onPress={() => console.log('Forgot password?')}>
+              Forgot password?
+            </Text>
+          </HStack>
           <Button
             variant="solid"
             text="Entrar"
             onPress={handleSubmit(handleSignIn)}
           />
         </Center>
+        
         <Center
           style={{
             paddingTop: 30,

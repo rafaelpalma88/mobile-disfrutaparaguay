@@ -10,11 +10,15 @@ import { Button, Skeleton, VStack } from 'native-base'
 import { useNavigation } from '@react-navigation/native'
 import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
 import { SkeletonEventsList } from './SkeletonEventsList'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { AuthNavigatorRoutesProps } from 'src/routes/auth.routes'
 
 export function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
+
+  const navigation = useNavigation<AppNavigatorRoutesProps & AuthNavigatorRoutesProps>()
 
   useEffect(() => {
    
@@ -60,6 +64,11 @@ export function EventsList() {
               <Text style={{ color: '#FFF' }}>Houve um erro na requisição com a API</Text>
             </View>
           )}
+
+          <View><Button onPress={() => {
+            AsyncStorage.removeItem('@disfrutaparaguay-accesstoken')
+            navigation.navigate('signin')
+          }}>Excluir AsyncStorage</Button></View>
 
           {!loading && events.length > 0 && !error && (
             <S.EventsList>
