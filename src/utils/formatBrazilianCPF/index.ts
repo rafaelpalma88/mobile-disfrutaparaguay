@@ -1,4 +1,4 @@
-export function firstLetterUppercase(text: string) {
+export function formatBrazilianCPF(text: string) {
   // Remove todos os caracteres não numéricos do texto
   const cleanedText = text.replace(/\D/g, '')
 
