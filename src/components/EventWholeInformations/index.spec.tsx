@@ -1,5 +1,5 @@
 import { openGoogleMaps } from '@utils/openGoogleMaps'
-import { EventResume } from '.'
+import { EventWholeInformation } from '.'
 import { fireEvent, render, screen } from '@testing-library/react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { NativeBaseProvider } from 'native-base'
@@ -43,7 +43,7 @@ describe('Component: EventResume', () => {
     render(
       <MockedNativeBaseConfigProvider>
         <MockedNavigationContainer>
-          <EventResume
+          <EventWholeInformation
             id={eventMock.id}
             active={eventMock.active}
             image={eventMock.image}

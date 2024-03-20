@@ -135,6 +135,7 @@ export function SignIn() {
             text="Entrar"
             onPress={handleSubmit(handleSignIn)}
           />
+          {/* By clicking the start button, I agree to Kemi’s Terms of Service , Privacy Policy. */}
         </Center>
         
         <Center

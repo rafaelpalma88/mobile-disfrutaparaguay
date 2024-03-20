@@ -3,12 +3,14 @@ import { render, screen } from '@testing-library/react-native'
 
 describe('Component: Button', () => {
   it('should render button component', () => {
-    render(<Button text="Teste" />)
-    // const { debug } = render(<Button text="Teste" />
-    // debug()
+    render(
+      <Button text="Teste" />
+    )
+    screen.debug()
+    const componentId = screen.queryByTestId('button')
+    const componentText = screen.queryByText('Teste')
 
-    const component = screen.queryByTestId('button')
-
-    expect(component).toBeTruthy()
+    expect(componentId).toBeTruthy()
+    expect(componentText).toBeTruthy()
   })
 })

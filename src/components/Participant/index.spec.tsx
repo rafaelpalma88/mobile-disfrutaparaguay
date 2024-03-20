@@ -6,8 +6,8 @@ describe('Component: Button', () => {
   const mockFn = jest.fn()
 
   it('should render button component', () => {
-    const { debug } = render(<Participant name={name} onRemove={mockFn} />)
-    debug()
+    render(<Participant name={name} onRemove={mockFn} />)
+    screen.debug()
 
     const component = screen.queryByText('John Doe')
 
