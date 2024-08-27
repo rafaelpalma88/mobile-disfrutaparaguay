@@ -31,7 +31,9 @@ type FormDataProps = {
 export function SignIn() {
   const [show, setShow] = useState(false)
 
-  const navigation = useNavigation<AppNavigatorRoutesProps & AuthNavigatorRoutesProps>()
+  const navigation = useNavigation<
+    AppNavigatorRoutesProps & AuthNavigatorRoutesProps
+  >()
 
   const {
     control,
@@ -47,8 +49,11 @@ export function SignIn() {
   function handleSignIn({ email, password }: FormDataProps) {
     console.log('email -> ', email)
     console.log('password -> ', password)
-    if(email === 'rafaelcostapalma@protonmail.com' && password === "teste123") {
-      AsyncStorage.setItem('@disfrutaparaguay-accesstoken','token-exemplo')
+    if (
+      email === 'rafaelcostapalma@protonmail.com' &&
+      password === 'teste123'
+    ) {
+      AsyncStorage.setItem('@disfrutaparaguay-accesstoken', 'token-exemplo')
       navigation.navigate('events')
     }
   }
@@ -58,7 +63,7 @@ export function SignIn() {
       contentContainerStyle={{ flexGrow: 1 }}
       showsVerticalScrollIndicator={false}
     >
-      <VStack flex={1} bg="gray.900">
+      <VStack flex={1} bg='gray.900'>
         <Center
           style={{
             flex: 1,
@@ -66,7 +71,7 @@ export function SignIn() {
             paddingRight: 30,
           }}
         >
-         <View marginBottom={30}>
+          <View marginBottom={30}>
             <LogoDisfrutaParaguay
               width={300} // Largura personalizada do SVG
               height={100} // Altura personalizada do SVG
@@ -81,17 +86,17 @@ export function SignIn() {
             render={({ field: { onChange, onBlur, value } }) => (
               //  mudar cor cursor quando está digitando para facilitar para o usuário
               <Input
-                placeholder="E-mail"
+                placeholder='E-mail'
                 onBlur={onBlur}
-                onChangeText={(text) => onChange(text.toLowerCase())} 
+                onChangeText={(text) => onChange(text.toLowerCase())}
                 value={value}
-                keyboardType="email-address"
-                caretHidden 
+                keyboardType='email-address'
+                caretHidden
               />
             )}
-            name="email"
+            name='email'
           />
-          {errors.email && <Text color="red.500">This is required.</Text>}
+          {errors.email && <Text color='red.500'>This is required.</Text>}
 
           <Controller
             control={control}
@@ -101,7 +106,7 @@ export function SignIn() {
             render={({ field: { onChange, onBlur, value } }) => (
               <Input
                 secureTextEntry={!show}
-                autoCapitalize="none"
+                autoCapitalize='none'
                 type={show ? 'text' : 'password'}
                 InputRightElement={
                   <Pressable onPress={() => setShow(!show)}>
@@ -112,32 +117,35 @@ export function SignIn() {
                         />
                       }
                       size={5}
-                      mr="3"
-                      color="muted.400"
+                      mr='3'
+                      color='muted.400'
                     />
                   </Pressable>
                 }
-                placeholder="Password"
+                placeholder='Password'
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
               />
             )}
-            name="password"
+            name='password'
           />
-          <HStack width='100%' justifyContent="flex-end" marginBottom={10}>
-            <Text color="gray.300" onPress={() => navigation.navigate('forgotpassword')}>
+          <HStack width='100%' justifyContent='flex-end' marginBottom={10}>
+            <Text
+              color='gray.300'
+              onPress={() => navigation.navigate('forgotpassword')}
+            >
               Forgot password?
             </Text>
           </HStack>
           <Button
-            variant="solid"
-            text="Entrar"
+            variant='solid'
+            text='Entrar'
             onPress={handleSubmit(handleSignIn)}
           />
           {/* By clicking the start button, I agree to Kemi’s Terms of Service , Privacy Policy. */}
         </Center>
-        
+
         <Center
           style={{
             paddingTop: 30,
@@ -146,17 +154,17 @@ export function SignIn() {
             paddingLeft: 30,
           }}
         >
-          <Text color="white" style={{ marginTop: 10, marginBottom: 10 }}>
-            Ainda não tem acesso?
+          <Text color='white' style={{ marginTop: 10, marginBottom: 10 }}>
+            Still don't have access?
           </Text>
           <Button
-            variant="outline"
-            text="Solicite acesso"
+            variant='outline'
+            text='Solicite acesso'
             onPress={() => {
               navigation.navigate('signup')
             }}
           />
-        </Center> 
+        </Center>
       </VStack>
     </ScrollView>
   )
